@@ -11,7 +11,7 @@ Projekt naprogramujte ve Vámi zvoleném programovacím jazyku s využitím
 | jméno | task |
 |-------|------|
 | Michal Homola [@xhomol25](https://github.com/xhomol25) | [`front-end (konzole/GUI)`](./brainstorming/front-end/) |
-| Dominik Chrenčík [@xchren05](https://github.com/xchren05) | <i>\<task\></i> |
+| Dominik Chrenčík [@xchren05](https://github.com/xchren05) | [`front-end (konzole/GUI)`](./brainstorming/front-end/) |
 | Jiří Marák [@xmarak02](https://github.com/xmarak02) | [`návrh standardizovaných úloh + interface`](./brainstorming/ulohy/) |
 | Vojtěch Lukáš [@voytex](https://github.com/voytex) | <i>\<task\></i> |
 
