@@ -42,7 +42,7 @@ V rámci návrhu kryptografických úloh, byly úlohy co nejvíce standardizovan
  V databázi jsou zahrnuty různé typy kryptografických úloh, aby bylo možné si vyzkoušet různé druhy kryptografických algoritmů a technologií. Součástí každé úlohy bude i nápověda k řešení, tak aby i řešitel, který si neví rady, mohl příklad vyřešit.
 
 \subsubsection{Konstrukce databáze}
-V tabulce \ref{tab:struktura_databaze} lze vidět současnou strukturu SQL databáze. Sloupec \textbf{ID} slouží jako primární klíč databáze, v buňce \textbf{Zadání} se pak nachází textový popis úlohy. Zde stojí za povšimnutí, že všechny číselné hodnoty důležité k výpočtu jsou nahrazeny zástupnými znaky $\$n$. Na místa těchto znaků bude logika v back-endu vkládat vygenerované hodnoty. Díky tomu bude možno jednu úlohu řešit vícekrát, pokaždé s jinými parametry. \textbf{Kód} úlohy pak slouží pro snazší rozlišení úloh. Uživatel si bude moct vybrat jaký typ bude chtít řešit, back-end si tuto úlohu vytáhne z databáze, opatří ji vygenerovanými operandy a spolu se správným výsledkem a nápovědou z buňky \textbf{Nápověda} ji zašle uživateli.  
+V tabulce \ref{tab:struktura_databaze} lze vidět současnou strukturu SQL databáze. Sloupec \textbf{ID} slouží jako primární klíč databáze, v buňce \textbf{Zadání} se pak nachází textový popis úlohy. Zde stojí za povšimnutí, že všechny číselné hodnoty důležité k výpočtu jsou nahrazeny zástupnými znaky \uv{$\$n$}. Na místa těchto znaků bude logika v back-endu vkládat vygenerované hodnoty. Díky tomu bude možno jednu úlohu řešit vícekrát, pokaždé s jinými parametry. \textbf{Kód} úlohy pak slouží pro snazší rozlišení úloh. Uživatel si bude moct vybrat jaký typ bude chtít řešit, back-end si tuto úlohu vytáhne z databáze, opatří ji vygenerovanými operandy a spolu se správným výsledkem a nápovědou z buňky \textbf{Nápověda} ji zašle uživateli.  
  \begin{table}
     \centering
     \caption{Struktura SQL databáze}
@@ -178,15 +178,15 @@ Architektura back-endu je navržena podle doporučení REST API. Původní návr
     \end{tabular}
 \end{table}
 
-V rámci projektu jsou využity dotazy z tabulky \ref{tab:api_dotazy}. Struktura těchto dotazů respektuje doporučení REST API. 
+V rámci projektu jsou implementovány dotazy z tabulky \ref{tab:api_dotazy}. Struktura těchto dotazů respektuje doporučení REST API. 
 
 \subsubsection{Generování hodnot}\label{sec:generovani_hodnot}
 Úkolem back-end serveru bude také generování a vkládání hodnot do textu úlohy. Toto bude mít na starosti samostatný modul, který podle kódu vyžádané úlohy vygeneruje potřebné hodnoty, vloží je na místo tokenů \uv{$\$n$} (viz tabulka~\ref{tab:struktura_databaze}). Takto připravená data již může převzít další modul a odeslat je uživateli. 
 
-Neméně důležitým úkolem této sekce je také výpočet správného výsledku pro vyhodnocení. Správný algoritmus pro výpočet bude zvolen podle kódu úlohy. Vypočtená hodnota bude opět předána dalšímu modulu, který je bude odesílat uživateli. 
+Neméně důležitým úkolem této sekce je také výpočet správného výsledku pro vyhodnocení. Správný algoritmus pro výpočet bude zvolen podle kódu úlohy. Vypočtená hodnota bude opět předána dalšímu modulu, který ji bude odesílat uživateli. 
 
 \subsubsection{Obsah JSON odpovědi}\label{sec:obsa_json}
-Jak již bylo zmíněno v předchozích odstavcích, JSON odpovědi budou obsahovat kromě buněk z SQL databáze také další hodnoty vygenerované serverem. V tuto chvíli vypadá návrh JSON objektu následovně:
+Jak již bylo zmíněno v předchozích odstavcích, JSON odpovědi budou obsahovat kromě buněk z SQL databáze také další hodnoty vygenerované serverem. V tuto chvíli vypadá obsah JSON objektu následovně:
 \begin{itemize}
     \item název úkolu,
     \item zadání úkolu,
@@ -217,7 +217,7 @@ Funkčnost lze ukázat na následujícím odkazu, který respektuje API popsané
 Po kliknutí na odkaz by se měl uživateli zobrazit v prohlížeči JSON objekt obsahující úlohu týkající se DH protokolu. 
 
 \subsection{Front-end}
-Této části systému bylo prozatím věnováno nejméně pozornosti. Byl vyvinut ukázkový skript, který dokazuje úspěšné propojení s webovou službou, zobrazení všech úloh, žádost a přijetí jedné konkrétní úlohy a výpis nápovědy. To vše lze vidět na obr.\,\ref{fig:front_end}
+Této části systému bylo prozatím věnováno nejméně pozornosti z důvodu sou\-středění na funkčnost celého systému. Byl vyvinut ukázkový skript, který dokazuje úspěšné propojení s webovou službou, zobrazení všech úloh, žádost a přijetí jedné konkrétní úlohy a výpis nápovědy. To vše lze vidět na obr.\,\ref{fig:front_end}
 
 \begin{figure}
     \centering
@@ -257,7 +257,7 @@ Má na starosti back-end a API.
 \addcontentsline{toc}{section}{Závěr}
 Během dosavadní činnosti na projektu byla navržena architektura systému, schéma databáze, podoba API a JSON odpovědí. Bylo také vymyšleno několik kryptografických úloh, vyvinut back-end a elementární front-end. Všechny komponenty mezi sebou úspěšně komunikují.
 
-V dalších fázích projektu je třeba zaměřit se na logiku generování hodnot do jednotlivých úloh a na zlepšení uživatelského zážitku při využívání front-endové aplikace. 
+V dalších fázích projektu je třeba zaměřit se na logiku generování hodnot do jednotlivých úloh a na zlepšení uživatelského zážitku při využívání front-endové aplikace. Nabízí se také rozšíření nápovědy a banky úloh.
 
 
 
