@@ -1,4 +1,5 @@
 \babel@toc {czech}{}
+\contentsline {section}{Úvod}{1}{section*.2}%
 \contentsline {section}{\numberline {1}Architektura}{1}{section.1}%
 \contentsline {subsection}{\numberline {1.1}Databáze úloh}{2}{subsection.1.1}%
 \contentsline {subsubsection}{\numberline {1.1.1}Konstrukce databáze}{2}{subsubsection.1.1.1}%
@@ -19,3 +20,4 @@
 \contentsline {subsection}{\numberline {2.2}Back-end}{6}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Front-end}{7}{subsection.2.3}%
 \contentsline {section}{\numberline {3}Členové týmu}{7}{section.3}%
+\contentsline {section}{Závěr}{7}{section*.7}%
