@@ -33,7 +33,7 @@ Klientská aplikace bude fungovat jako přístupový bod a sehrávat roli prezen
 
 
 
-\subsection{Databáze úloh}
+\subsection{Databáze úloh}\label{sec:databaze_uloh}
 
 V rámci návrhu kryptografických úloh, byly úlohy co nejvíce standardizované, z důvodu jejich uložení v jednotné databázi. Zároveň musí být výsledky jednoznačné tak, aby byly dobře porovnatelné s výsledky zadanými řešitelem. Proto jsou výsledky koncipovány jako číslo, či prosté \uv{ano/ne}.      
 
@@ -157,7 +157,7 @@ Architektura back-endu je navržena podle doporučení REST API. Původní návr
 
 \subsection{Výpočet řešení úloh}
 
-\subsubsection{API dotazy}
+\subsubsection{API dotazy}\label{sec:api_dotazy}
 \begin{table}[b]
     \centering
     \caption{Tabulka API dotazů}
@@ -176,14 +176,14 @@ Architektura back-endu je navržena podle doporučení REST API. Původní návr
     \end{tabular}
 \end{table}
 
-V rámci projektu jsou využity dotazy z tabulky \ref{tab:api_dotazy}. Struktura těchto dotazů respektuje doporučení REST API. Demonstrační příklad je možné navštívit na tomto \href{http://vut-fekt-mpckry-gr14.8u.cz/index.php/alltasks}{odkazu}.
+V rámci projektu jsou využity dotazy z tabulky \ref{tab:api_dotazy}. Struktura těchto dotazů respektuje doporučení REST API. 
 
-\subsubsection{Generování hodnot}
+\subsubsection{Generování hodnot}\label{sec:generovani_hodnot}
 Úkolem back-end serveru bude také generování a vkládání hodnot do textu úlohy. Toto bude mít na starosti samostatný modul, který podle kódu vyžádané úlohy vygeneruje potřebné hodnoty, vloží je na místo tokenů \uv{$\$n$} (viz tabulka~\ref{tab:struktura_databaze}). Takto připravená data již může převzít další modul a odeslat je uživateli. 
 
 Neméně důležitým úkolem této sekce je také výpočet správného výsledku pro vyhodnocení. Správný algoritmus pro výpočet bude zvolen podle kódu úlohy. Vypočtená hodnota bude opět předána dalšímu modulu, který je bude odesílat uživateli. 
 
-\subsubsection{Obsah JSON odpovědi}
+\subsubsection{Obsah JSON odpovědi}\label{sec:obsa_json}
 Jak již bylo zmíněno v předchozích odstavcích, JSON odpovědi budou obsahovat kromě buněk z SQL databáze také další hodnoty vygenerované serverem. V tuto chvíli vypadá návrh JSON objektu následovně:
 \begin{itemize}
     \item název úkolu,
@@ -203,25 +203,30 @@ Aplikace může mít více podob. Implicitně se počítá s konzolovou aplikac�
 
 \section{Současný stav}
 \subsection{Databáze úloh}
-V čase odevzdání této studie 
+V čase odevzdání této studie je navrhnuto 7 různých kryptografických úloh v souladu s jejich návrhem v sekci \ref{sec:databaze_uloh}. Všechny tyto úlohy jsou opatřeny tokeny \uv{$\$n$} a nápovědami. Jsou také již nahrané v SQL databázi na serveru. 
 \subsection{Back-end}
-\subsubsection{Soubory webového serveru}
-\dirtree{%
-    .1 web.
-    .2 Model.
-    .3 Database.php.
-    .3 TaskModel.php.
-    .2 Controller.
-    .3 Api.
-    .4 BaseController.php.
-    .4 TaskController.php.
-    .2 inc.
-    .3 config.php.
-    .3 bootstrap.php.
-    .2 index.php.
-}
-\vspace{1em}
-Moduly ve složce \texttt{Model} slouží k propojení a komunikaci s databází. Modul \texttt{Task\-Controller.php} je využit ke zpracování různých požadavků z uživatelské aplikace. Soubory ve složce \texttt{inc} by se daly označit jako \uv{servisní moduly}: \texttt{config.php} definuje přístupové údaje k databázi jako konstanty\footnote{Vzhledem k citlivé povaze obsažených informací je tento soubor vyřazen z verzování pomocí záznamu v \texttt{.gitignore}.}; modul \texttt{boot\-strap.php} pak obstarává správné propojení modulů. Modul \texttt{index.php} je pak ten, který přímo komunikuje s klientskou aplikací, třídí její požadavky a korektně na ně odpovídá. 
+Webová služba je v tuto chvíli zčásti hotová a publikovaná na adrese \url{http://vut-fekt-mpckry-gr14.8u.cz/index.php}. Implementováno jsou nyní reakce na API dotazy (viz sekce \ref{sec:api_dotazy} a \ref{sec:obsa_json}), chybí implementovat generování hodnot (viz sekce \ref{sec:generovani_hodnot}). V textu JSON odpovědí jsou tokeny \uv{$\$n$} nyní ještě nenahrazeny. Odpověď nyní také ještě \emph{neobsahuje} hodnotu se správným výsledkem. 
+
+Funkčnost lze ukázat na následujícím odkazu, který respektuje API popsané v tabulce \ref{tab:api_dotazy}:
+\url{http://vut-fekt-mpckry-gr14.8u.cz/index.php/task?code=dh}.
+Po kliknutí na odkaz by se měl uživateli zobrazit v prohlížeči JSON objekt obsahující úlohu týkající se DH protokolu. 
+% \subsubsection{Soubory webového serveru}
+% \dirtree{%
+%     .1 web.
+%     .2 Model.
+%     .3 Database.php.
+%     .3 TaskModel.php.
+%     .2 Controller.
+%     .3 Api.
+%     .4 BaseController.php.
+%     .4 TaskController.php.
+%     .2 inc.
+%     .3 config.php.
+%     .3 bootstrap.php.
+%     .2 index.php.
+% }
+% \vspace{1em}
+% Moduly ve složce \texttt{Model} slouží k propojení a komunikaci s databází. Modul \texttt{Task\-Controller.php} je využit ke zpracování různých požadavků z uživatelské aplikace. Soubory ve složce \texttt{inc} by se daly označit jako \uv{servisní moduly}: \texttt{config.php} definuje přístupové údaje k databázi jako konstanty\footnote{Vzhledem k citlivé povaze obsažených informací je tento soubor vyřazen z verzování pomocí záznamu v \texttt{.gitignore}.}; modul \texttt{boot\-strap.php} pak obstarává správné propojení modulů. Modul \texttt{index.php} je pak ten, který přímo komunikuje s klientskou aplikací, třídí její požadavky a korektně na ně odpovídá. 
 
 \section{Členové týmu}
 
