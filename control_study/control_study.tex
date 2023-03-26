@@ -39,7 +39,7 @@ V rámci návrhu kryptografických úloh, byly úlohy co nejvíce standardizovan
 
  V databázi jsou zahrnuty různé typy kryptografických úloh, aby bylo možné si vyzkoušet různé druhy kryptografických algoritmů a technologií. Součástí každé úlohy bude i nápověda k řešení, tak aby i řešitel, který si neví rady, mohl příklad vyřešit.
 
-\subsection{Konstrukce databáze}
+\subsubsection{Konstrukce databáze}
 V tabulce \ref{tab:struktura_databaze} lze vidět současnou strukturu SQL databáze. Sloupec \textbf{ID} slouží jako primární klíč databáze, v buňce \textbf{Zadání} se pak nachází textový popis úlohy. Zde stojí za povšimnutí, že všechny číselné hodnoty důležité k výpočtu jsou nahrazeny zástupnými znaky $\$n$. Na místa těchto znaků bude logika v back-endu vkládat vygenerované hodnoty. Díky tomu bude možno jednu úlohu řešit vícekrát, pokaždé s jinými parametry. \textbf{Kód} úlohy pak slouží pro snazší rozlišení úloh. Uživatel si bude moct vybrat jaký typ bude chtít řešit, back-end si tuto úlohu vytáhne z databáze, opatří ji vygenerovanými operandy a spolu se správným výsledkem a nápovědou z buňky \textbf{Nápověda} ji zašle uživateli.  
  \begin{table}
     \centering
@@ -61,7 +61,7 @@ V tabulce \ref{tab:struktura_databaze} lze vidět současnou strukturu SQL datab
  \end{table}
     
 
-
+\subsection{Typy úloh}
 \subsubsection{RSA}
 Část  úloh zahrnuje výpočet RSA algoritmu. Zadáno je zde šifrování nebo naopak dešifrování zprávy pomocí zadaného klíče algoritmem RSA.
 
@@ -153,8 +153,9 @@ Pro kongruence modulo platí:
 V dalším vývoji by mohla být nápověda rozdělena na více úrovní, tak aby si je řešitel mohl postupně vyžádat v případě, že mu bude postačovat pouze malá nápověda a potřebuje pouze \uv{nakopnout}, nebo si neví rady a potřebuje nápovědu větší. Taktéž budu přidány další úlohy z oblasti aplikované kryptografie.   
 
 \subsection{Back-end}
-Architektura back-endu je navržena podle doporučení REST API. Původní návrhy řešení počítaly s využitím .NET serveru na portálu Microsoft Azure. Nakonec bylo ale upřednostněno řešení využívající PHP server. Celé řešení back-endu bylo založeno na \cite{restapi}. Od začátku byl projekt vyvíjen přímo na serveru pro usnadnění přístupu. 
+Architektura back-endu je navržena podle doporučení REST API. Původní návrhy řešení počítaly s využitím .NET serveru na portálu Microsoft Azure. Nakonec bylo ale upřednostněno řešení využívající PHP server. Celé řešení back-endu je založeno na \cite{restapi}. Od začátku byl projekt vyvíjen přímo na serveru pro usnadnění přístupu. 
 
+\subsection{Výpočet řešení úloh}
 
 \subsubsection{API dotazy}
 \begin{table}[b]
@@ -175,18 +176,21 @@ Architektura back-endu je navržena podle doporučení REST API. Původní návr
     \end{tabular}
 \end{table}
 
-V rámci projektu budou využity dotazy z tabulky \ref{tab:api_dotazy}. Struktura těchto dotazů respektuje doporučení REST API. Demonstrační příklad je možné navštívit na tomto \href{http://vut-fekt-mpckry-gr14.8u.cz/index.php/alltasks}{odkazu}.
+V rámci projektu jsou využity dotazy z tabulky \ref{tab:api_dotazy}. Struktura těchto dotazů respektuje doporučení REST API. Demonstrační příklad je možné navštívit na tomto \href{http://vut-fekt-mpckry-gr14.8u.cz/index.php/alltasks}{odkazu}.
+
+\subsubsection{Generování hodnot}
+Úkolem back-end serveru bude také generování a vkládání hodnot do textu úlohy. Toto bude mít na starosti samostatný modul, který podle kódu vyžádané úlohy vygeneruje potřebné hodnoty, vloží je na místo tokenů \uv{$\$n$} (viz tabulka~\ref{tab:struktura_databaze}). Takto připravená data již může převzít další modul a odeslat je uživateli. 
+
+Neméně důležitým úkolem této sekce je také výpočet správného výsledku pro vyhodnocení. Správný algoritmus pro výpočet bude zvolen podle kódu úlohy. Vypočtená hodnota bude opět předána dalšímu modulu, který je bude odesílat uživateli. 
 
 \subsubsection{Obsah JSON odpovědi}
-Obsahem JSON odpovědi nebudou \emph{pouze} buňky z tabulky \ref{tab:struktura_databaze}, ale také další hodnoty pod klíči, které se v této tabulce nenachází. Nejdůležitější hodnotou bude \textbf{Správný výsledek}, ten se v SQL u dané úlohy nenachází, protože je počítán z vygenerovaných hodnot. 
-
-V této fázi vývoje je tedy počítáno s následujícími klíči:
+Jak již bylo zmíněno v předchozích odstavcích, JSON odpovědi budou obsahovat kromě buněk z SQL databáze také další hodnoty vygenerované serverem. V tuto chvíli vypadá návrh JSON objektu následovně:
 \begin{itemize}
     \item název úkolu,
     \item zadání úkolu,
     \item kód úkolu,
     \item nápověda,
-    \item správné řešení (dosazeno back-endem).
+    \item správné řešení.
 \end{itemize}
 
 
@@ -198,6 +202,8 @@ Aplikace může mít více podob. Implicitně se počítá s konzolovou aplikac�
 
 
 \section{Současný stav}
+\subsection{Databáze úloh}
+
 \subsection{Back-end}
 \subsubsection{Soubory webového serveru}
 \dirtree{%
@@ -217,7 +223,11 @@ Aplikace může mít více podob. Implicitně se počítá s konzolovou aplikac�
 \vspace{1em}
 Moduly ve složce \texttt{Model} slouží k propojení a komunikaci s databází. Modul \texttt{Task\-Controller.php} je využit ke zpracování různých požadavků z uživatelské aplikace. Soubory ve složce \texttt{inc} by se daly označit jako \uv{servisní moduly}: \texttt{config.php} definuje přístupové údaje k databázi jako konstanty\footnote{Vzhledem k citlivé povaze obsažených informací je tento soubor vyřazen z verzování pomocí záznamu v \texttt{.gitignore}.}; modul \texttt{boot\-strap.php} pak obstarává správné propojení modulů. Modul \texttt{index.php} je pak ten, který přímo komunikuje s klientskou aplikací, třídí její požadavky a korektně na ně odpovídá. 
 
+\section{Členové týmu}
+
 \section*{Závěr}
+
+
 
 \begin{thebibliography}{9}
     \bibitem{restapi}
