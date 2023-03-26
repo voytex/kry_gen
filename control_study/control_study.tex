@@ -202,14 +202,27 @@ Aplikace může mít více podob. Implicitně se počítá s konzolovou aplikac�
 
 
 \section{Současný stav}
+Tým využívá dva GIT repozitáře. K nahlédnutí jsou \href{https://github.com/voytex/kry_gen}{zde} a \href{https://github.com/voytex/kry_gen-backend}{zde}.
 \subsection{Databáze úloh}
 V čase odevzdání této studie je navrhnuto 7 různých kryptografických úloh v souladu s jejich návrhem v sekci \ref{sec:databaze_uloh}. Všechny tyto úlohy jsou opatřeny tokeny \uv{$\$n$} a nápovědami. Jsou také již nahrané v SQL databázi na serveru. 
 \subsection{Back-end}
-Webová služba je v tuto chvíli zčásti hotová a publikovaná na adrese \url{http://vut-fekt-mpckry-gr14.8u.cz/index.php}. Implementováno jsou nyní reakce na API dotazy (viz sekce \ref{sec:api_dotazy} a \ref{sec:obsa_json}), chybí implementovat generování hodnot (viz sekce \ref{sec:generovani_hodnot}). V textu JSON odpovědí jsou tokeny \uv{$\$n$} nyní ještě nenahrazeny. Odpověď nyní také ještě \emph{neobsahuje} hodnotu se správným výsledkem. 
+Webová služba je v tuto chvíli zčásti hotová a publikovaná na adrese \url{http://vut-fekt-mpckry-gr14.8u.cz/index.php}. Implementováno jsou nyní reakce na API dotazy (viz sekce \ref{sec:api_dotazy} a \ref{sec:obsa_json}), chybí implementovat generování hodnot (viz sekce \ref{sec:generovani_hodnot}). V textu JSON odpovědí jsou tokeny \uv{$\$n$} nyní ještě nenahrazeny. Odpověď nyní také ještě neobsahuje hodnotu se správným výsledkem. 
+
+
 
 Funkčnost lze ukázat na následujícím odkazu, který respektuje API popsané v tabulce \ref{tab:api_dotazy}:
 \url{http://vut-fekt-mpckry-gr14.8u.cz/index.php/task?code=dh}.
 Po kliknutí na odkaz by se měl uživateli zobrazit v prohlížeči JSON objekt obsahující úlohu týkající se DH protokolu. 
+
+\section{Front-end}
+Této části systému bylo prozatím věnováno nejméně pozornosti. Byl vyvinut ukázkový skript, který dokazuje úspěšné propojení s webovou službou, zobrazení všech úloh, žádost a přijetí jedné konkrétní úlohy a výpis nápovědy. To vše lze vidět na obr.\,\ref{fig:front_end}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=.8\linewidth]{frontend.png}
+    \caption{Ukázkový průchod front-end skriptem}
+    \label{fig:front_end}
+\end{figure}
 % \subsubsection{Soubory webového serveru}
 % \dirtree{%
 %     .1 web.
