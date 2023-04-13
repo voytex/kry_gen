@@ -11,23 +11,28 @@ request = requests.get(f"{API}/alltasks")
 json_req = request.json()
 
 for row in json_req:
-    print(f"- {row['description']}")
+    print(f"{row['code']} - {row['description']}")
 
 code = str(input())
 
 request = requests.get(f"{API}/task?code={code}")
 
 json_req = request.json()
+print(f"{json_req['description']} [? - nápověda], [q - ukončit]")
 
-print(f"{json_req[0]['description']} [? - nápověda]")
-
-ans = input()
-
-if (ans == '?'):
-    print(json_req[0]['hint'])
-# v tuto chvili jeste NENI IMPLEMENTOVANO!
-elif (ans == json_req[0]['result']):
-    print("Správně!")
-
-
-
+while True:
+    answer = input('Zadej výsledek: ')
+    if answer == '?':
+        print(json_req['hint'])
+        
+    elif answer.lower() == 'q':
+        show_solution = input('Chceš zobrazit správný výsledek? (y/n): ')
+        if show_solution.lower() == 'y':
+            print(f'Správný výsledek: {json_req["result"]}')
+        break    
+        
+    elif (answer == json_req['result']):
+        print("Správně!")
+    
+    else:
+        print('Špatně, zkus to znovu.')
