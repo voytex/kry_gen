@@ -27,11 +27,14 @@ if show_help.lower() == 'ano':
 
 # vyhodnocení správnosti výsledku
 while True:
-    vysledek = input('Zadej výsledek (nebo "q" pro ukončení úkolu): ')
-    if vysledek.lower() == 'q':
+    answer = input('Zadej výsledek (nebo "q" pro ukončení): ')
+    if answer == 'q':
+        show_solution = input('Chceš zobrazit správný výsledek? (ano/ne): ')
+        if show_solution.lower() == 'ano':
+            print(f'Správný výsledek: {task["result"]}')
         break
-    elif int(vysledek) == task["result"]:
+    elif int(answer) == task["result"]:
         print('Správně!')
-        # přidat další úkol do databáze
+        break
     else:
         print('Špatně, zkus to znovu.')
