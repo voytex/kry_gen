@@ -1,6 +1,6 @@
 import requests, json
 
-WELCOME_STRING = "\nCrypto Tasks\n\nZadejte kód úlohy, kterou si přejete řešit\n\nDosavadní úlohy:"
+WELCOME_STRING = "\nCrypto Tasks\n\nDosavadní úlohy:"
 
 API = "http://vut-fekt-mpckry-gr14.8u.cz/index.php"
 
@@ -15,7 +15,7 @@ for row in json_req:
 
 while True:
 
-    code = str(input("\nZadej kód: "))
+    code = str(input("\nZadejte kód úlohy, kterou si přejete řešit: "))
 
     request = requests.get(f"{API}/task?code={code}")
 
