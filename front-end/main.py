@@ -1,6 +1,6 @@
 import requests, json
 
-WELCOME_STRING = "Crypto Tasks - ukázková verze\nZadejte kód úlohy, kterou si přejete řešit\n\nDosavadní úlohy:"
+WELCOME_STRING = "Crypto Tasks\nZadejte kód úlohy, kterou si přejete řešit\n\nDosavadní úlohy:"
 
 API = "http://vut-fekt-mpckry-gr14.8u.cz/index.php"
 
@@ -33,6 +33,6 @@ while True:
         
     elif (answer == json_req['result']):
         print("Správně!")
-    
+        break
     else:
         print('Špatně, zkus to znovu.')
