@@ -1,39 +1,38 @@
-import requests
-import psycopg2
+import requests, json
 
-# připojení k databázi
-conn = psycopg2.connect(database="databaze", user="uzivatel", password="heslo", host="server", port="5432")
+WELCOME_STRING = "Crypto Tasks - ukázková verze\nZadejte kód úlohy, kterou si přejete řešit\n\nDosavadní úlohy:"
 
-# získání dat o úkolech
-cur = conn.cursor()
-cur.execute("SELECT id, nazev FROM ukoly")
-rows = cur.fetchall()
+API = "http://vut-fekt-mpckry-gr14.8u.cz/index.php"
 
-# výpis dostupných úkolů
-print("Dostupné úkoly:")
-for row in rows:
-    print(f"{row[0]}. {row[1]}")
+print(WELCOME_STRING)
 
-# uživatel zvolí konkrétní úkol
-vybrany_ukol = input("Vyberte úkol, který chcete řešit: ")
+request = requests.get(f"{API}/alltasks")
 
-# odeslání požadavku na server
-response = requests.get(f'http://example.com/tasks/{vybrany_ukol}')
-task = response.json()
+json_req = request.json()
 
-# výpis úkolu
-print(f'Název úkolu: {task["name"]}')
-print(f'Popis úkolu: {task["description"]}')
+for row in json_req:
+    print(f"{row['code']} - {row['description']}")
 
-# zobrazení nápovědy
-show_help = input('Chceš zobrazit nápovědu k úkolu? (ano/ne): ')
-if show_help.lower() == 'ano':
-    print(f'Nápověda k úkolu {task["name"]}: {task["help"]}')
+code = str(input())
 
-# vyhodnocení správnosti výsledku
-vysledek = input('Zadej výsledek: ')
-if int(vysledek) == task["result"]:
-    print('Správně!')
-    # přidat další úkol do databáze
-else:
-    print('Špatně, zkus to znovu.')
+request = requests.get(f"{API}/task?code={code}")
+
+json_req = request.json()
+print(f"{json_req['description']} [? - nápověda], [q - ukončit]")
+
+while True:
+    answer = input('Zadej výsledek: ')
+    if answer == '?':
+        print(json_req['hint'])
+        
+    elif answer.lower() == 'q':
+        show_solution = input('Chceš zobrazit správný výsledek? (y/n): ')
+        if show_solution.lower() == 'y':
+            print(f'Správný výsledek: {json_req["result"]}')
+        break    
+        
+    elif (answer == json_req['result']):
+        print("Správně!")
+    
+    else:
+        print('Špatně, zkus to znovu.')
