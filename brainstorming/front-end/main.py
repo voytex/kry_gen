@@ -1,40 +1,39 @@
-import requests
+import requests, json
 
-# odeslání požadavku na server pro získání seznamu úkolů
-response = requests.get('http://vut-fekt-mpckry-gr14.azurewebsites.net/tasks')
-tasks = response.json()
+WELCOME_STRING = "Crypto Tasks - ukázková verze\nZadejte kód úlohy, kterou si přejete řešit\n\nDosavadní úlohy:"
 
-# výpis dostupných úkolů
-print("Dostupné úkoly:")
-for task in tasks:
-    print(f"{task['id']}. {task['name']}")
+API = "http://vut-fekt-mpckry-gr14.8u.cz/index.php"
 
-# uživatel zvolí konkrétní úkol
-vybrany_ukol = input("Vyberte úkol, který chcete řešit: ")
+print(WELCOME_STRING)
 
-# odeslání požadavku na server pro získání konkrétního úkolu
-response = requests.get(f'http://vut-fekt-mpckry-gr14.azurewebsites.net/tasks/{vybrany_ukol}')
-task = response.json()
+request = requests.get(f"{API}/alltasks")
 
-# výpis úkolu
-print(f'Název úkolu: {task["name"]}')
-print(f'Popis úkolu: {task["description"]}')
+json_req = request.json()
 
-# zobrazení nápovědy
-show_help = input('Chceš zobrazit nápovědu k úkolu? (ano/ne): ')
-if show_help.lower() == 'ano':
-    print(f'Nápověda k úkolu {task["name"]}: {task["help"]}')
+for row in json_req:
+    print(f"{row['code']} - {row['description']}")
 
-# vyhodnocení správnosti výsledku
+code = str(input())
+
+request = requests.get(f"{API}/task?code={code}")
+
+json_req = request.json()
+print(f"{json_req['description']} [? - nápověda], [q - ukončit]")
+
 while True:
-    answer = input('Zadej výsledek (nebo "q" pro ukončení): ')
-    if answer == 'q':
-        show_solution = input('Chceš zobrazit správný výsledek? (ano/ne): ')
-        if show_solution.lower() == 'ano':
-            print(f'Správný výsledek: {task["result"]}')
-        break
-    elif int(answer) == task["result"]:
-        print('Správně!')
-        break
+    answer = input('Zadej výsledek: ')
+    if answer == '?':
+        print(json_req['hint'])
+        
+    elif answer.lower() == 'q':
+        show_solution = input('Chceš zobrazit správný výsledek? (y/n): ')
+        if show_solution.lower() == 'y':
+            print(f'Správný výsledek: {json_req["result"]}')
+        break    
+        
+    elif (answer == json_req['result']):
+        print("Správně!")
+    
     else:
         print('Špatně, zkus to znovu.')
+
