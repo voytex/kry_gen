@@ -1,49 +1,46 @@
 import requests, json
 from clear_console import clear_console
 from console_colours import *
+from print_all_tasks import API, print_all_tasks
 
-WELCOME_STRING = f"\n{C_BLUE}Crypto Tasks{C_RES}\n\nDosavadní úlohy:"
-
-API = "http://vut-fekt-mpckry-gr14.8u.cz/index.php"
+WELCOME_STRING = f"{C_BLUE}Crypto Tasks{C_RES}\n\nDosavadní úlohy:"
+SCORE = 0
 
 clear_console()
 print(WELCOME_STRING)
 
-request = requests.get(f"{API}/alltasks")
-
-json_req = request.json()
-
-valid_codes = [row['code'] for row in json_req]
-
-for row in json_req:
-    print(f"{row['code']} - {row['description']}")
 
 while True:
-    code = str(input("\nZadejte kód úlohy, kterou si přejete řešit: "))
+    valid_codes = print_all_tasks()
+    code = str(input(f"{C_BLUE}[Skóre: {SCORE}] {C_YELLOW}Zadejte kód úlohy, kterou si přejete řešit:{C_RES}"))
 
     if code not in valid_codes:
-        print("Špatný kód")
+        print(f"{C_RED}Špatný kód{C_RES}")
     else:    
+        clear_console()
         request = requests.get(f"{API}/task?code={code}")
 
         json_req = request.json()
-        print(f"{json_req['description']} [? - nápověda], [q - ukončit]")
+        print(f"{json_req['description']} {C_YELLOW}[? - nápověda], [q - ukončit]{C_RES}")
 
         while True:
             answer = input("\nZadej výsledek: ")
             if answer == '?':
-                print(json_req['hint'])
+                print(f"{C_YELLOW}{json_req['hint']}{C_RES}")
             elif answer.lower() == 'q':
                 show_solution = input("Chceš zobrazit správný výsledek? (y/n): ")
                 if show_solution.lower() == 'y':
-                    print(f"\nSprávný výsledek: {json_req['result']}")
+                    print(f"\nSprávný výsledek: {C_YELLOW}{json_req['result']}{C_RES}")
                 break    
             elif (answer == json_req['result']):
-                print("Správně!")
+                print(f"{C_GREEN}Správně!{C_RES}")
+                SCORE += 1
                 break
             else:
-                print("Špatně, zkus to znovu.")
+                print(f"{C_RED}Špatně, zkus to znovu.{C_RES}")
                 
         continue_input = input("\nChceš pokračovat v řešení dalšího úkolu? (y/n): ")
-        if continue_input.lower() != 'y':
+        if continue_input.lower() != 'y':  
+            print(f"{C_BLUE}GG [Vaše skóre: {SCORE}]{C_RES}")
             break
+        clear_console()
