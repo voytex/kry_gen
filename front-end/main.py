@@ -1,9 +1,12 @@
 import requests, json
+from clear_console import clear_console
+from console_colours import *
 
-WELCOME_STRING = "\nCrypto Tasks\n\nDosavadní úlohy:"
+WELCOME_STRING = f"\n{C_BLUE}Crypto Tasks{C_RES}\n\nDosavadní úlohy:"
 
 API = "http://vut-fekt-mpckry-gr14.8u.cz/index.php"
 
+clear_console()
 print(WELCOME_STRING)
 
 request = requests.get(f"{API}/alltasks")
