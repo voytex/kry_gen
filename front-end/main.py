@@ -32,7 +32,7 @@ while True:
                 if show_solution.lower() == 'y':
                     print(f"\nSprávný výsledek: {C_YELLOW}{json_req['result']}{C_RES}")
                 break    
-            elif (answer == json_req['result']):
+            elif (answer == str(json_req['result'])):
                 print(f"{C_GREEN}Správně!{C_RES}")
                 SCORE += 1
                 break
