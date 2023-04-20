@@ -107,6 +107,33 @@ VUT v Brně
     \end{figure}
 \end{frame}
 
+% -----------------------------------------------------------------------
+
+\begin{frame}{SQL databáze úloh}
+    \begin{itemize}
+        \item databáze je navržena pro maximalizaci variability
+        \item prototypy úloh, do kterých jsou na serveru dosazeny náhodné hodnoty
+        \item token \textbf{$\$n$}
+        \item pole \textbf{result} je prázdné, výsledek je dosazen až po generaci hodnot
+    \end{itemize}
+    \begin{table}
+        \caption{Struktura databáze}
+        \begin{tabular}[pos]{|c|c|c|c|}
+            \hline
+            \textbf{code} & \textbf{description} & \textbf{result} & \textbf{hint} \\
+            \hline
+            \hline
+            dh & Vypočítejte soukromý klíč pomocí DH. Prvočíslo $p=\$1$\dots & NULL & Nápověda\dots \\
+            \hline
+            lcm & Najděte nejmenší společný násobek čísel $\$1$ a $\$2$. & NULL & Nápověda\dots \\
+            \hline
+            \smash{\vdots} & \vdots & \vdots & \vdots \\
+            \hline
+        \end{tabular}
+    \end{table}
+    
+\end{frame}
+
 % https://cs.overleaf.com/learn/latex/Lists
 \begin{frame}{Rešení}
     \textbf{Unordered lists}
