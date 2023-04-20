@@ -1216,6 +1216,7 @@ INPUT /usr/local/texlive/2021/texmf-dist/tex/generic/pgf/libraries/pgflibraryplo
 INPUT /usr/local/texlive/2021/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 INPUT /usr/local/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 INPUT /usr/local/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/url/url.sty
 INPUT /Users/vojtechlukas/Documents/GitHub/kry_gen/presentation/themevut.sty
 INPUT /Users/vojtechlukas/Documents/GitHub/kry_gen/presentation/themevut.sty
 INPUT /Users/vojtechlukas/Documents/GitHub/kry_gen/presentation/themevut.sty
@@ -1482,6 +1483,15 @@ INPUT /Users/vojtechlukas/Documents/GitHub/kry_gen/presentation/logo_fekt.png
 INPUT /Users/vojtechlukas/Documents/GitHub/kry_gen/presentation/logo_fekt.png
 INPUT /Users/vojtechlukas/Documents/GitHub/kry_gen/presentation/logo_fekt.png
 INPUT /Users/vojtechlukas/Documents/GitHub/kry_gen/presentation/logo_fekt.png
+INPUT /Users/vojtechlukas/Documents/GitHub/kry_gen/presentation/logo_fekt.png
+INPUT /Users/vojtechlukas/Documents/GitHub/kry_gen/presentation/logo_fekt.png
+INPUT /Users/vojtechlukas/Documents/GitHub/kry_gen/presentation/logo_fekt.png
+INPUT /Users/vojtechlukas/Documents/GitHub/kry_gen/presentation/logo_fekt.png
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
+INPUT /Users/vojtechlukas/Documents/GitHub/kry_gen/presentation/logo_fekt.png
+INPUT /Users/vojtechlukas/Documents/GitHub/kry_gen/presentation/logo_fekt.png
+INPUT /Users/vojtechlukas/Documents/GitHub/kry_gen/presentation/logo_fekt.png
+INPUT /Users/vojtechlukas/Documents/GitHub/kry_gen/presentation/logo_fekt.png
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
@@ -1500,7 +1510,6 @@ INPUT /Users/vojtechlukas/Documents/GitHub/kry_gen/presentation/logo_fekt.png
 INPUT /Users/vojtechlukas/Documents/GitHub/kry_gen/presentation/logo_fekt.png
 INPUT /Users/vojtechlukas/Documents/GitHub/kry_gen/presentation/logo_fekt.png
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmssi10.tfm
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
 INPUT /Users/vojtechlukas/Documents/GitHub/kry_gen/presentation/logo_fekt.png
 INPUT /Users/vojtechlukas/Documents/GitHub/kry_gen/presentation/logo_fekt.png
 INPUT /Users/vojtechlukas/Documents/GitHub/kry_gen/presentation/logo_fekt.png

@@ -32,6 +32,7 @@
 \usepackage{listings} % Typeset source code listings using LaTeX
 \usepackage{color} % Colour control for LaTeX documents
 \usepackage{tikz}
+\usepackage{url}
 %% Copy your favorite logo from "vut_logo_archive/" to root folder 
 % and rename file to "logo.png"
 
@@ -128,6 +129,34 @@ VUT v Brně
             lcm & Najděte nejmenší společný násobek čísel $\$1$ a $\$2$. & NULL & Nápověda\dots \\
             \hline
             \smash{\vdots} & \vdots & \vdots & \vdots \\
+            \hline
+        \end{tabular}
+    \end{table}
+\end{frame}
+
+% ------------------------------------------------------------------------
+
+\begin{frame}{Generátor hodnot}
+    
+\end{frame}
+
+\begin{frame}{Back-end server}
+    \begin{itemize}
+        \item vyvinut v PHP: \texttt{<url> = }\url{http://vut-fekt-mpckry-gr14.8u.cz/index.php}
+        \item 
+    \end{itemize}
+    \begin{table}
+        \centering
+        \caption{API funkce serveru} 
+        \begin{tabular}{|c|c|c|}
+            \hline
+            \textbf{URL} & \textbf{popis} & \textbf{použití} \\
+            \hline \hline
+            \texttt{/alltasks} & zašle všechny úlohy z DB & \texttt{<url>/alltasks} \\
+            \hline
+            \texttt{/task?code=<code>} &zašle úlohu s daným kódem & \texttt{<url>/task?code=dh} \\
+            \hline
+            \texttt{/randomtask} & zašle náhodnou úlohu & \texttt{<url>/randomtask}\\
             \hline
         \end{tabular}
     \end{table}
