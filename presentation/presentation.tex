@@ -23,7 +23,7 @@
 \documentclass[aspectratio=1610]{beamer}
 
 %% Select your favorite language
-\usepackage[english]{babel} % Multilingual support for LaTeX
+\usepackage[czech]{babel} % Multilingual support for LaTeX
 % \usepackage[czech]{babel}
 
 \usepackage[utf8]{inputenc} % Accept different input encodings
@@ -31,7 +31,7 @@
 \usepackage{graphicx} % Enhanced support for graphics
 \usepackage{listings} % Typeset source code listings using LaTeX
 \usepackage{color} % Colour control for LaTeX documents
-
+\usepackage{tikz}
 %% Copy your favorite logo from "vut_logo_archive/" to root folder 
 % and rename file to "logo.png"
 
@@ -92,14 +92,20 @@ VUT v Brně
 % ----------------------------------------------------------------------
 
 \begin{frame}{Zadání}
-    \begin{itemize}
-        \item Navrhněte a implementujte vlastní službu pro generování úloh do aplikované
-kryptografie.
-        \item 
-    
-    \end{itemize}
+    \begin{alertblock}{}
+        Navrhněte a implementujte vlastní službu pro generování úloh do aplikované kryptografie. Služba bude mít vlastní rozhraní \textbf{(REST API)}, prostřednictvím kterého bude možné vyžádat úlohu \textbf{(HTTP metoda GET)}. Úloha se bude předávat ve formátu \textbf{JSON}. Úlohy se budou generovat \textbf{do konzole}. 
+    \end{alertblock}
 \end{frame}
 % ----------------------------------------------------------------------
+
+\begin{frame}{Architektura}
+    \begin{figure}
+        \centering
+        \input{../control_study/schemes/database-glyph.tex}
+        \input{../control_study/schemes/system-scheme}
+        \caption{Schéma vyvinutého systému}
+    \end{figure}
+\end{frame}
 
 % https://cs.overleaf.com/learn/latex/Lists
 \begin{frame}{Rešení}
@@ -124,7 +130,6 @@ kryptografie.
         \end{itemize}
     \end{enumerate}
 \end{frame}
-
 % ----------------------------------------------------------------------
 
 \begin{frame}{Text}

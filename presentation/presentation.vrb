@@ -1,0 +1,30 @@
+\frametitle{Příklad kódu}
+
+\begin{lstlisting}[language=python,title={Příklad Python kódu}]
+
+while True:
+    valid_codes = print_all_tasks()
+    code = str(input(f"{C_BLUE}[Skore: {SCORE}] {C_YELLOW}Zadejte kod ulohy, kterou si prejete resit:{C_RES}"))
+    if code not in valid_codes:
+        print(f"{C_RED}spatny kod{C_RES}")
+    else:
+        clear_console()
+        request = requests.get(f"{API}/task?code={code}")
+\end{lstlisting}
+    \vfill
+
+\begin{lstlisting}[language=php,title={Příklad PHP kódu}]
+$random = rand(1,2); //slouzi k vyberu prvocislo / slozene cislo
+//podle vyberu se operand $prime nastavi na True/False
+if ($random == 1) {
+//prvocislo
+$X = rand(530, 10000);
+$C = gmp_nextprime($X); //vysledek
+
+$prime= True;
+
+} else {
+//slozene cislo
+\end{lstlisting}
+
+
