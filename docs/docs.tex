@@ -22,13 +22,40 @@
 Předmětem této dokumentace je představit vizi projektu s názvem \uv{Generátor kryptografických úloh}. První část bude věnována teoretickému popisu systému jako celku. \dots
 
 \section{Architektura}
-Schéma připravovaného systému lze vidět na obr.\,\ref{fig:sys}. Úlohy budou uloženy v SQL databázi. K~této databázi bude mít přístup pouze webový PHP~server. Ten slouží jako \uv{prostředník} mezi klientem a databází. Dále by měl do úloh vkládat náhodná data (klíče apod.) a~případně také vyhodnocovat výsledky. 
-Klientská aplikace bude fungovat jako přístupový bod a sehrávat roli prezentační vrstvy. Pro jednoduchost bude vyvinuta v jazyce Python s oddělenou logickou vrstvou. Bude tedy možné na tuto vrstvu napojit i jednoduché grafické rozhraní. 
+Schéma systému lze vidět na obr.\,\ref{fig:sys}. Úlohy jsou uloženy v SQL databázi. K~této databázi má přístup pouze webový PHP~server. Ten slouží jako \uv{prostředník} mezi klientem a databází. Dále do úloh vkládá generované hodnoty (klíče apod.).
+Klientská aplikace funguje jako přístupový bod a sehrává roli prezentační vrstvy. Pro jednoduchost je vyvinuta v jazyce Python, využívá pouze konzolové pro\-středí. 
 \begin{figure}[h!]
     \centering
-    \include{../control_study/schemes/system-scheme.tex}    
+    \input{../control_study/schemes/system-scheme.tex}    
     \caption{Schéma systému}
     \label{fig:sys}
 \end{figure}
+
+\subsection{Konstrukce databáze}
+V tabulce \ref{tab:struktura_databaze} lze vidět strukturu SQL databáze. 
+Sloupec \textbf{ID} slouží jako primární klíč databáze, \textbf{Kód} úlohy pak slouží pro snazší rozlišení úloh. V~buňce \textbf{Zadání} se nachází textový popis úlohy. Zde stojí za povšimnutí, že všechny číselné hodnoty důležité k výpočtu jsou nahrazeny zástupnými znaky \uv{$\$n$}. 
+Na místa těchto znaků bude logika v back-endu vkládat vygenerované hodnoty. Díky tomu bude možno jednu úlohu řešit vícekrát, po\-kaž\-dé s jinými parametry. 
+Pole \textbf{Výsledek} je záměrně prázdné~--~správný výsledek zde vloží až server, který tuto hodnotu vypočítá podle vygenerovaných parametrů. 
+
+Uživatel si bude moct vybrat jaký typ bude chtít řešit, back-end si tuto úlohu podle jejího kódu vytáhne z databáze, opatří ji vygenerovanými operandy a spolu se správným výsledkem a nápovědou ji zašle uživateli, jak lze vidět v diagramu na obr.\, \textcolor{red}{TODO::diagram!}
+ \begin{table}
+    \centering
+    \caption{Struktura SQL databáze}
+    \label{tab:struktura_databaze}
+    \vspace{.5em}
+    \begin{tabular}[h]{| l | l | p{3.7cm} | l | l |}
+        \hline
+        \textbf{ID} & \textbf{Kód} & \textbf{Zadání} &  \textbf{Nápověda} & \textbf{Výsledek} \\
+        \texttt{INT} & \texttt{VARCHAR(5)} & \texttt{TEXT} &  \texttt{TEXT} & \texttt{TEXT} \\
+        \hline\hline
+        1 & \texttt{PR} & Rozhodněte (ano/ne) zda je číslo $n=\$1$ prvočíslo  & \dots & \texttt{NULL} \\
+        \hline
+        2 & \texttt{RSAe} & Zašifrujte zprávu $m=\$4$, pomocí RSA kryptosystému. Prvočísla jsou $p=\$1;\ q=\$2$, a soukromý klíč je $e=\$3$  & \dots & \texttt{NULL} \\
+        \hline
+        \vdots & \vdots & \vdots & \vdots & \vdots \\
+        \hline
+    \end{tabular}
+ \end{table}
+    
 
 \end{document}

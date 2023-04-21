@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.5)  21 APR 2023 10:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.5)  21 APR 2023 10:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -490,40 +490,47 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 15.
 LaTeX Info: Redefining \pageref on input line 15.
 LaTeX Info: Redefining \nameref on input line 15.
+ (/Users/vojtechlukas/Documents/GitHub/kry_gen/docs/docs.out) (/Users/vojtechlukas/Documents/GitHub/kry_gen/docs/docs.out)
 \@outlinefile=\write4
 \openout4 = `docs.out'.
 
  [1
 
-{/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+{/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (/Users/vojtechlukas/Documents/GitHub/kry_gen/docs/docs.toc)
 \tf@toc=\write5
 \openout5 = `docs.toc'.
 
+ (/Users/vojtechlukas/Documents/GitHub/kry_gen/docs/../control_study/schemes/system-scheme.tex)
+Underfull \hbox (badness 10000) in paragraph at lines 51--51
+[]\OT1/cmr/m/n/10 Rozhodn^^Tete (ano/ne)
+ []
 
 
-LaTeX Warning: Reference `fig:sys' on page 1 undefined on input line 25.
+Underfull \hbox (badness 1248) in paragraph at lines 51--51
+\OT1/cmr/m/n/10 zda je ^^Tc^^S^^Pslo $\OML/cmm/m/it/10 n \OT1/cmr/m/n/10 = $1$
+ []
 
-/Users/vojtechlukas/Documents/GitHub/kry_gen/docs/docs.tex:29: I can't write on file `../control_study/schemes/system-scheme.aux'.
-\@include ...mmediate \openout \@partaux "#1.aux" 
-                                                  \immediate \write \@partau...
-l.29 ..../control_study/schemes/system-scheme.tex}
-                                                  
-(Press Enter to retry, or Control-D to exit; default file extension is `.tex')
-Please type another output file name
-/Users/vojtechlukas/Documents/GitHub/kry_gen/docs/docs.tex:29: Emergency stop.
-\@include ...mmediate \openout \@partaux "#1.aux" 
-                                                  \immediate \write \@partau...
-l.29 ..../control_study/schemes/system-scheme.tex}
-                                                  
-*** (job aborted, file error in nonstop mode)
-
- 
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.59 
+      [1] [2] (/Users/vojtechlukas/Documents/GitHub/kry_gen/docs/docs.aux)
+Package rerunfilecheck Info: File `docs.out' has not changed.
+(rerunfilecheck)             Checksum: 3538C5B9A5002D053951920EAEA89601;328.
+ ) 
 Here is how much of TeX's memory you used:
- 19562 strings out of 478994
- 356891 string characters out of 5858185
- 648038 words of memory out of 5000000
- 36715 multiletter control sequences out of 15000+600000
- 408052 words of font info for 43 fonts, out of 8000000 for 9000
+ 19732 strings out of 478994
+ 361097 string characters out of 5858185
+ 661292 words of memory out of 5000000
+ 36867 multiletter control sequences out of 15000+600000
+ 408981 words of font info for 47 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 87i,7n,89p,456b,360s stack positions out of 5000i,500n,10000p,200000b,80000s
-/Users/vojtechlukas/Documents/GitHub/kry_gen/docs/docs.tex:29:  ==> Fatal error occurred, no output PDF file produced!
+ 87i,12n,89p,456b,874s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on /Users/vojtechlukas/Documents/GitHub/kry_gen/docs/docs.pdf (3 pages, 96236 bytes).
+PDF statistics:
+ 74 PDF objects out of 1000 (max. 8388607)
+ 61 compressed objects within 1 object stream
+ 9 named destinations out of 1000 (max. 500000)
+ 37 words of extra memory for PDF output out of 10000 (max. 10000000)
+

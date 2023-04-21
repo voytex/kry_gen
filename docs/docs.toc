@@ -1,0 +1,4 @@
+\babel@toc {czech}{}
+\contentsline {section}{Úvod}{1}{section*.2}%
+\contentsline {section}{\numberline {1}Architektura}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Konstrukce databáze}{1}{subsection.1.1}%
