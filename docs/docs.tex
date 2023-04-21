@@ -60,6 +60,7 @@ Uživatel si bude moct vybrat jaký typ bude chtít řešit, back-end si tuto ú
  \subsection{Generátor hodnot}
 Modul generace hodnot je pro tento projekt zcela klíčový. Byl implementován přímo v~rámci back-end serveru, taktéž v jazyce PHP. Pro každý typ úlohy byla vytvořena jedna funkce, která vygeneruje pseudonáhodné operandy a předá je jako svou návratovou hodnotu. 
 
+Server pak podle kódu žádané úlohy zažádá o její prototyp SQL server a zavolá příslušnou funkci pro doplnění vygenerovaných hodnot. Takto upravenou úlohu zabalí jako JSON objekt a pošle uživateli. 
 
  \subsection{API}
 Architektura back-endu je navržena podle doporučení REST API. Celé řešení je založeno na \cite{restapi}. Od začátku byl projekt vyvíjen přímo na serveru pro usnadnění přístupu. URL pro zasílání dotazů: \url{http://vut-fekt-mpckry-gr14.8u.cz/index.php}. Všechny implementované dotazy jsou zmíněny v tabulce \ref{tab:api}.
@@ -82,6 +83,9 @@ Architektura back-endu je navržena podle doporučení REST API. Celé řešení
 \end{table}
 
 Jako odpověď na tyto dotazy server zašle JSON objekt, který bude již obsahovat vygenerované hodnoty i výsledek. 
+
+\section{Komentáře}
+
 
 
 \begin{thebibliography}{9}

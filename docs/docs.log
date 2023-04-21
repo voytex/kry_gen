@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.5)  21 APR 2023 21:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.5)  21 APR 2023 22:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -503,8 +503,8 @@ LaTeX Info: Redefining \nameref on input line 15.
  (/Users/vojtechlukas/Documents/GitHub/kry_gen/docs/../control_study/schemes/system-scheme.tex)pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.40 U
-      živatel si bude moct vybrat jaký typ bude chtít řešit, back-end s... [1]
+l.39 
+      [1]
 Underfull \hbox (badness 10000) in paragraph at lines 51--51
 []\OT1/cmr/m/n/10 Rozhodn^^Tete (ano/ne)
  []
@@ -514,23 +514,26 @@ Underfull \hbox (badness 1248) in paragraph at lines 51--51
 \OT1/cmr/m/n/10 zda je ^^Tc^^S^^Pslo $\OML/cmm/m/it/10 n \OT1/cmr/m/n/10 = $1$
  []
 
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 [2] [3] (/Users/vojtechlukas/Documents/GitHub/kry_gen/docs/docs.aux)
 Package rerunfilecheck Info: File `docs.out' has not changed.
-(rerunfilecheck)             Checksum: 9C2FDBDDE589F681C64668983E10674E;543.
+(rerunfilecheck)             Checksum: 1FC65E9740488F62AB8C9DC17C2225F7;637.
  ) 
 Here is how much of TeX's memory you used:
- 19744 strings out of 478994
- 361231 string characters out of 5858185
- 661354 words of memory out of 5000000
- 36872 multiletter control sequences out of 15000+600000
+ 19746 strings out of 478994
+ 361251 string characters out of 5858185
+ 662349 words of memory out of 5000000
+ 36873 multiletter control sequences out of 15000+600000
  409327 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  87i,12n,89p,456b,874s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on /Users/vojtechlukas/Documents/GitHub/kry_gen/docs/docs.pdf (4 pages, 118501 bytes).
+Output written on /Users/vojtechlukas/Documents/GitHub/kry_gen/docs/docs.pdf (4 pages, 119993 bytes).
 PDF statistics:
- 102 PDF objects out of 1000 (max. 8388607)
- 87 compressed objects within 1 object stream
- 15 named destinations out of 1000 (max. 500000)
- 53 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 107 PDF objects out of 1000 (max. 8388607)
+ 92 compressed objects within 1 object stream
+ 16 named destinations out of 1000 (max. 500000)
+ 61 words of extra memory for PDF output out of 10000 (max. 10000000)
 
