@@ -9,7 +9,7 @@
 
 \input{../control_study/schemes/database-glyph.tex}
 
-\title{Generátor úloh do aplikované kryptografie\\Kontrolní studie}
+\title{Generátor úloh do aplikované kryptografie\\Dokumentace}
 \author{Michal Homola,\\Dominik Chrenčík,\\Jiří Marák,\\Vojtěch Lukáš}
 
 \begin{document}
@@ -56,6 +56,39 @@ Uživatel si bude moct vybrat jaký typ bude chtít řešit, back-end si tuto ú
         \hline
     \end{tabular}
  \end{table}
+
+ \subsection{Generátor hodnot}
+Modul generace hodnot je pro tento projekt zcela klíčový. Byl implementován přímo v~rámci back-end serveru, taktéž v jazyce PHP. Pro každý typ úlohy byla vytvořena jedna funkce, která vygeneruje pseudonáhodné operandy a předá je jako svou návratovou hodnotu. 
+
+
+ \subsection{API}
+Architektura back-endu je navržena podle doporučení REST API. Celé řešení je založeno na \cite{restapi}. Od začátku byl projekt vyvíjen přímo na serveru pro usnadnění přístupu. URL pro zasílání dotazů: \url{http://vut-fekt-mpckry-gr14.8u.cz/index.php}. Všechny implementované dotazy jsou zmíněny v tabulce \ref{tab:api}.
+\begin{table}[h!]
+    \centering
+    \caption{API funkce serveru} 
+    \label{tab:api}
+    \vspace{.5em}
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{URL} & \textbf{popis} & \textbf{použití} \\
+        \hline \hline
+        \texttt{/alltasks} & zašle všechny úlohy z DB & \texttt{<url>/alltasks} \\
+        \hline
+        \texttt{/task?code=<code>} &zašle úlohu s daným kódem & \texttt{<url>/task?code=pr} \\
+        \hline
+        \texttt{/randomtask} & zašle náhodnou úlohu & \texttt{<url>/randomtask}\\
+        \hline
+    \end{tabular}
+\end{table}
+
+Jako odpověď na tyto dotazy server zašle JSON objekt, který bude již obsahovat vygenerované hodnoty i výsledek. 
+
+
+\begin{thebibliography}{9}
+    \bibitem{restapi}
+    SONI, Sajal. How to build a simple REST API in PHP. \emph{En\-va\-to Tuts+} [on\-li\-ne]. 27-5-2021 [cit. 2023-03-25]. Dostupné z: \url{https://code.tutsplus.com/tutorials/how-to-build-a-simple-rest-api-in-php--cms-37000}
+\end{thebibliography}
+
     
 
 \end{document}

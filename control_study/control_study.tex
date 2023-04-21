@@ -178,7 +178,7 @@ Architektura back-endu je navržena podle doporučení REST API. Původní návr
     \end{tabular}
 \end{table}
 
-V rámci projektu jsou implementovány dotazy z tabulky \ref{tab:api_dotazy}. Struktura těchto dotazů respektuje doporučení REST API. 
+V rámci projektu jsou implementovány dotazy z tabulky \ref{tab:api_dotazy}. 
 
 \subsubsection{Generování hodnot}\label{sec:generovani_hodnot}
 Úkolem back-end serveru bude také generování a vkládání hodnot do textu úlohy. Toto bude mít na starosti samostatný modul, který podle kódu vyžádané úlohy vygeneruje potřebné hodnoty, vloží je na místo tokenů \uv{$\$n$} (viz tabulka~\ref{tab:struktura_databaze}). Takto připravená data již může převzít další modul a odeslat je uživateli. 
