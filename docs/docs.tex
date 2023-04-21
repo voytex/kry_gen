@@ -1,0 +1,34 @@
+\documentclass[titlepage]{article}
+
+\usepackage[czech]{babel}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage{dirtree}
+\usepackage{amsmath}
+
+\input{../control_study/schemes/database-glyph.tex}
+
+\title{Generátor úloh do aplikované kryptografie\\Kontrolní studie}
+\author{Michal Homola,\\Dominik Chrenčík,\\Jiří Marák,\\Vojtěch Lukáš}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\section*{Úvod}
+\addcontentsline{toc}{section}{Úvod}
+Předmětem této dokumentace je představit vizi projektu s názvem \uv{Generátor kryptografických úloh}. První část bude věnována teoretickému popisu systému jako celku. \dots
+
+\section{Architektura}
+Schéma připravovaného systému lze vidět na obr.\,\ref{fig:sys}. Úlohy budou uloženy v SQL databázi. K~této databázi bude mít přístup pouze webový PHP~server. Ten slouží jako \uv{prostředník} mezi klientem a databází. Dále by měl do úloh vkládat náhodná data (klíče apod.) a~případně také vyhodnocovat výsledky. 
+Klientská aplikace bude fungovat jako přístupový bod a sehrávat roli prezentační vrstvy. Pro jednoduchost bude vyvinuta v jazyce Python s oddělenou logickou vrstvou. Bude tedy možné na tuto vrstvu napojit i jednoduché grafické rozhraní. 
+\begin{figure}[h!]
+    \centering
+    \include{../control_study/schemes/system-scheme.tex}    
+    \caption{Schéma systému}
+    \label{fig:sys}
+\end{figure}
+
+\end{document}
