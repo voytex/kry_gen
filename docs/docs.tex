@@ -100,7 +100,7 @@ Zjednodušený vývojový diagram je zobrazený na obr.\,\ref{fig:diagram}. Chro
     \item Databáze zašle žádanou úlohu serveru. 
     \item Server pro tuto úlohu nyní vygeneruje operandy a správný výsledek. Operandy dosadí za tokeny \uv{$\$n$} v poli \texttt{description} a výsledek vloží do pole \texttt{result}. 
     \item Takto upravený záznam pak jako JSON objekt zašle klientovi.
-    \item Klient zobrazí zadání úlohy (\texttt{description})\footnote{Popřípadě také nápovědu (\texttt{hint}) pokud si uživatel neví rady.} a čeká na uživatelem zadaný výsledek. Pokud uživatel zadal tentýž výsledek, který klientovi přišel ze serveru, je zvýšeno skóre a nabídnuto řešení další úlohy. V opačném případě se může uživatel pokusit o opětovné zadání výsledku, popřípadě může sezení ukončit. 
+    \item Klient zobrazí zadání úlohy (\texttt{description})\footnote{Popřípadě také nápovědu (\texttt{hint}) pokud si uživatel neví rady.} a čeká na uživatelem zadaný výsledek. Pokud uživatel zadal tentýž výsledek, který klientovi přišel ze serveru, je zvýšeno skóre a nabídnuto řešení další úlohy. V opačném případě se může uživatel pokusit o opětovné zadání výsledku, nebo sezení ukončit. 
 \end{enumerate}
 \begin{figure}[p]
     \centering
