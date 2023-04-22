@@ -6,6 +6,7 @@
 \usepackage{hyperref}
 \usepackage{dirtree}
 \usepackage{amsmath}
+\usepackage{pdfpages}
 
 \input{../control_study/schemes/database-glyph.tex}
 
@@ -37,7 +38,9 @@ Sloupec \textbf{ID} slouží jako primární klíč databáze, \textbf{Kód} úl
 Na místa těchto znaků bude logika v back-endu vkládat vygenerované hodnoty. Díky tomu bude možno jednu úlohu řešit vícekrát, po\-kaž\-dé s jinými parametry. 
 Pole \textbf{Výsledek} je záměrně prázdné~--~správný výsledek zde vloží až server, který tuto hodnotu vypočítá podle vygenerovaných parametrů. 
 
-Uživatel si bude moct vybrat jaký typ bude chtít řešit, back-end si tuto úlohu podle jejího kódu vytáhne z databáze, opatří ji vygenerovanými operandy a spolu se správným výsledkem a nápovědou ji zašle uživateli, jak lze vidět v diagramu na obr.\, \textcolor{red}{TODO::diagram!}
+Uživatel si bude moct vybrat jaký typ bude chtít řešit, back-end si tuto úlohu podle jejího kódu vytáhne z databáze, opatří ji vygenerovanými operandy a spolu se správným výsledkem a nápovědou ji zašle uživateli, jak lze vidět v diagramu na obr.\,\ref*{fig:diagram}.
+
+
  \begin{table}
     \centering
     \caption{Struktura SQL databáze}
@@ -83,6 +86,14 @@ Architektura back-endu je navržena podle doporučení REST API. Celé řešení
 \end{table}
 
 Jako odpověď na tyto dotazy server zašle JSON objekt, který bude již obsahovat vygenerované hodnoty i výsledek. 
+
+\section*{Vývojový diagram}
+\begin{figure}[p]
+    \centering
+    \includegraphics[width=.9\linewidth]{figures/diagram.png}
+    \caption{Vývojový diagram systému}
+    \label{fig:diagram}
+\end{figure}
 
 \section{Komentáře}
 
