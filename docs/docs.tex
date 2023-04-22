@@ -87,7 +87,21 @@ Architektura back-endu je navržena podle doporučení REST API. Celé řešení
 
 Jako odpověď na tyto dotazy server zašle JSON objekt, který bude již obsahovat vygenerované hodnoty i výsledek. 
 
-\section*{Vývojový diagram}
+\section{Vývojový diagram}
+Zjednodušený vývojový diagram je zobrazený na obr.\,\ref{fig:diagram}. Chronologicky program postupuje takto:
+\begin{enumerate}
+    \item Po spuštění Python klienta ihned zažádá o seznam všech úloh, které následně zobrazí uživateli.\footnote{Tyto úlohy \emph{nebudou obsahovat} vygenerované hodnoty, pouze zástupné znaky ($\$n$).} Klient tedy zašle serveru HTTP GET po\-ža\-davek.
+    \item Server jej příjme a na jeho popud zašle SQL query pro výběr \emph{všech} zá\-zna\-mů v databázi. 
+    \item Databáze zašle všechny své záznamy serveru.
+    \item Server tuto odpověď zabalí do JSON objektu a zašle klientovi. 
+    \item Uživateli se zobrazí všechny dostupné úlohy. Jednu z nich si vybere a zadá její kód.
+    \item Klient na základě tohoto kódu opět vygeneruje  GET požadavek, který zašle serveru. 
+    \item Server opět zasílá databázi (tentokrát již specifickou) SQL query. Žádá o jednu úlohu, jejíž kód se shoduje s kódem, který zadal uživatel. 
+    \item Databáze zašle žádanou úlohu serveru. 
+    \item Server pro tuto úlohu nyní vygeneruje operandy a správný výsledek. Operandy dosadí za tokeny \uv{$\$n$} v poli \texttt{description} a výsledek vloží do pole \texttt{result}. 
+    \item Takto upravený záznam pak jako JSON objekt zašle klientovi.
+    \item Klient zobrazí zadání úlohy (\texttt{description})\footnote{Popřípadě také nápovědu (\texttt{hint}) pokud si uživatel neví rady.} a čeká na uživatelem zadaný výsledek. Pokud uživatel zadal tentýž výsledek, který klientovi přišel ze serveru, je zvýšeno skóre a nabídnuto řešení další úlohy. V opačném případě se může uživatel pokusit o opětovné zadání výsledku, popřípadě může sezení ukončit. 
+\end{enumerate}
 \begin{figure}[p]
     \centering
     \includegraphics[width=.9\linewidth]{figures/diagram.png}

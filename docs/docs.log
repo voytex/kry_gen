@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.5)  22 APR 2023 09:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.5)  22 APR 2023 09:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -551,28 +551,29 @@ Underfull \hbox (badness 1248) in paragraph at lines 54--54
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figures/diagram.png, id=59, 921.4425pt x 665.48625pt>
+[2]
+<figures/diagram.png, id=75, 921.4425pt x 665.48625pt>
 File: figures/diagram.png Graphic file (type png)
 <use figures/diagram.png>
-Package pdftex.def Info: figures/diagram.png  used on input line 93.
+Package pdftex.def Info: figures/diagram.png  used on input line 107.
 (pdftex.def)             Requested size: 310.4979pt x 224.24158pt.
-[2] [3] [4 </Users/vojtechlukas/Documents/GitHub/kry_gen/docs/figures/diagram.png>] (/Users/vojtechlukas/Documents/GitHub/kry_gen/docs/docs.aux)
+ [3] [4] [5 </Users/vojtechlukas/Documents/GitHub/kry_gen/docs/figures/diagram.png>] (/Users/vojtechlukas/Documents/GitHub/kry_gen/docs/docs.aux)
 Package rerunfilecheck Info: File `docs.out' has not changed.
-(rerunfilecheck)             Checksum: 1FC65E9740488F62AB8C9DC17C2225F7;637.
+(rerunfilecheck)             Checksum: F4977B8B60871CE257280D6FD75D6117;769.
  ) 
 Here is how much of TeX's memory you used:
- 20506 strings out of 478994
- 373319 string characters out of 5858185
+ 20526 strings out of 478994
+ 373471 string characters out of 5858185
  676836 words of memory out of 5000000
- 37605 multiletter control sequences out of 15000+600000
- 409327 words of font info for 48 fonts, out of 8000000 for 9000
+ 37609 multiletter control sequences out of 15000+600000
+ 409847 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 87i,11n,89p,456b,881s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on /Users/vojtechlukas/Documents/GitHub/kry_gen/docs/docs.pdf (5 pages, 181246 bytes).
+ 87i,11n,89p,544b,881s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
+Output written on /Users/vojtechlukas/Documents/GitHub/kry_gen/docs/docs.pdf (6 pages, 232167 bytes).
 PDF statistics:
- 117 PDF objects out of 1000 (max. 8388607)
- 99 compressed objects within 1 object stream
- 19 named destinations out of 1000 (max. 500000)
- 66 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 168 PDF objects out of 1000 (max. 8388607)
+ 142 compressed objects within 2 object streams
+ 33 named destinations out of 1000 (max. 500000)
+ 74 words of extra memory for PDF output out of 10000 (max. 10000000)
 
