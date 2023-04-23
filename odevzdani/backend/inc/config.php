@@ -1,5 +1,5 @@
 <?php
-define("DB_HOST", "innodb.endora.cz");
-define("DB_USERNAME", "mpckrygr14");
-define("DB_PASSWORD", "MPCkryGR14");
-define("DB_DATABASE_NAME", "mpckrygr14");
+define("DB_HOST", "");
+define("DB_USERNAME", "");
+define("DB_PASSWORD", "");
+define("DB_DATABASE_NAME", "");
