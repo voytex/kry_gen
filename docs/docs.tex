@@ -109,8 +109,39 @@ Zjednodušený vývojový diagram je zobrazený na obr.\,\ref{fig:diagram}. Chro
     \label{fig:diagram}
 \end{figure}
 
-\section{Komentáře}
+\section{Kód}
+Adresářová struktura odevzdávaného projektu má tuto podobu:
+\dirtree{%
+    .1 /.
+    .2 backend.
+    .3 Controller.
+    .4 Api.
+    .5 BaseController.php.
+    .5 TaskController.php.
+    .4 Generator.php.
+    .4 Populator.php.
+    .3 Model.
+    .4 Database.php.
+    .4 TaskModel.php.
+    .3 inc.
+    .4 bootstrap.php.
+    .4 config.php.
+    .3 index.php.
+    .2 frontend.
+    .3 main.py.
+    .3 clear\_console.py.
+    .3 console\_colours.py.
+    .3 print\_all\_tasks.py.
+    .2 skupina14\_dokumentace.pdf.
+}
+Zdrojový kód je komentovaný, zde bude tedy pouze ve stručnosti popsána funkce jednotlivých modulů. 
 
+\texttt{backend} obsahuje zdrojový kód PHP serveru. Klient se připojuje na koncový bod \texttt{index.php}~--~odtud jsou pak kaskádovitě volány další funkce, jejichž výsledkem je JSON objekt obsahující žádanou odpověď. Server \emph{neposkytuje} odpovědi jiného typu než JSON. Pro kontrolu není nutná instalace, server je veřejně přístupný na adrese \url{http://vut-fekt-mpckry-gr14.8u.cz/index.php/alltasks}.
+
+\texttt{frontend} obsahuje zdrojový kód klienta. Hlavním souborem je \texttt{main.py}~--~ostatní soubory jsou pouze podpůrné. Skript se spouští bez argumentů. Testován byl ve verzi \texttt{Python 3.10.8}. Pro usnadnění spolupráce i kontroly byl tento skript také vyvěšen na tomto odkazu: \url{https://replit.com/@vlukas1/krygen-frontend?v=1}. Zde je i spustitelný. 
+
+\section*{Závěr}
+\addcontentsline{toc}{section}{Závěr}
 
 
 \begin{thebibliography}{9}
