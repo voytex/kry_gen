@@ -20,7 +20,7 @@
 
 \section*{Úvod}
 \addcontentsline{toc}{section}{Úvod}
-Předmětem této dokumentace je představit vizi projektu s názvem \uv{Generátor kryptografických úloh}. První část bude věnována teoretickému popisu systému jako celku. V~druhé části bude názorně popsán průběh komunikace mezi serverem a klientem a ve třetí části bude ve stručnosti představeny zdrojové soubory. 
+Předmětem této dokumentace je představit vyhotovení projektu s názvem \uv{Generátor kryptografických úloh}. První část bude věnována teoretickému popisu systému jako celku. V~druhé části bude názorně popsán průběh komunikace mezi serverem a klientem a ve třetí části bude ve stručnosti představeny zdrojové soubory. 
 
 \section{Architektura}
 Schéma systému lze vidět na obr.\,\ref{fig:sys}. Úlohy jsou uloženy v SQL databázi. K~této databázi má přístup pouze webový PHP~server. Ten slouží jako \uv{prostředník} mezi klientem a databází. Dále do úloh vkládá generované hodnoty (klíče apod.).
@@ -35,13 +35,13 @@ Klientská aplikace funguje jako přístupový bod a sehrává roli prezentačn�
 \subsection{Konstrukce databáze}
 V tabulce \ref{tab:struktura_databaze} lze vidět strukturu SQL databáze. 
 Sloupec \textbf{ID} slouží jako primární klíč databáze, \textbf{Kód} úlohy pak slouží pro snazší rozlišení úloh. V~buňce \textbf{Zadání} se nachází textový popis úlohy. Zde stojí za povšimnutí, že všechny číselné hodnoty důležité k výpočtu jsou nahrazeny zástupnými znaky \uv{$\$n$}. 
-Na místa těchto znaků bude logika v back-endu vkládat vygenerované hodnoty. Díky tomu bude možno jednu úlohu řešit vícekrát, po\-kaž\-dé s jinými parametry. 
+Na místa těchto znaků bude logika v back-endu vkládat pseudonáhodně vygenerované hodnoty. Díky tomu bude možno jednu úlohu řešit vícekrát, po\-kaž\-dé s jinými parametry. 
 Pole \textbf{Výsledek} je záměrně prázdné~--~správný výsledek zde vloží až server, který tuto hodnotu vypočítá podle vygenerovaných parametrů. 
 
-Uživatel si bude moct vybrat jaký typ bude chtít řešit, back-end si tuto úlohu podle jejího kódu vytáhne z databáze, opatří ji vygenerovanými operandy a spolu se správným výsledkem a nápovědou ji zašle uživateli, jak lze vidět v diagramu na obr.\,\ref*{fig:diagram}.
+Uživatel si bude moct vybrat jaký typ bude chtít řešit, back-end si tuto úlohu podle jejího kódu vytáhne z databáze, opatří ji vygenerovanými operandy a spolu se správným výsledkem a nápovědou ji zašle uživateli, jak lze vidět v diagramu na obr.\,\ref{fig:diagram}.
 
 
- \begin{table}
+ \begin{table}[h]
     \centering
     \caption{Struktura SQL databáze}
     \label{tab:struktura_databaze}
@@ -66,7 +66,7 @@ Modul generace hodnot je pro tento projekt zcela klíčový. Byl implementován 
 Server pak podle kódu žádané úlohy zažádá o její prototyp SQL server a zavolá příslušnou funkci pro doplnění vygenerovaných hodnot. Takto upravenou úlohu zabalí jako JSON objekt a pošle uživateli. 
 
  \subsection{API}
-Architektura back-endu je navržena podle doporučení REST API. Celé řešení je založeno na \cite{restapi}. Od začátku byl projekt vyvíjen přímo na serveru pro usnadnění přístupu. URL pro zasílání dotazů: \url{http://vut-fekt-mpckry-gr14.8u.cz/index.php}. Všechny implementované dotazy jsou zmíněny v tabulce \ref{tab:api}.
+Architektura back-endu je navržena podle doporučení REST API. Celé řešení je založeno na \cite{restapi}. Od začátku byl projekt vyvíjen přímo na serveru pro usnadnění přístupu. Všechny implementované dotazy jsou zmíněny v tabulce \ref{tab:api}.\footnote{\texttt{<url> = } \url{http://vut-fekt-mpckry-gr14.8u.cz/index.php}.}
 \begin{table}[h!]
     \centering
     \caption{API funkce serveru} 
@@ -90,8 +90,8 @@ Jako odpověď na tyto dotazy server zašle JSON objekt, který bude již obsaho
 \section{Vývojový diagram}
 Zjednodušený vývojový diagram je zobrazený na obr.\,\ref{fig:diagram}. Chronologicky program postupuje takto:
 \begin{enumerate}
-    \item Po spuštění Python klienta ihned zažádá o seznam všech úloh, které následně zobrazí uživateli.\footnote{Tyto úlohy \emph{nebudou obsahovat} vygenerované hodnoty, pouze zástupné znaky ($\$n$).} Klient tedy zašle serveru HTTP GET po\-ža\-davek.
-    \item Server jej příjme a na jeho popud zašle SQL query pro výběr \emph{všech} zá\-zna\-mů v databázi. 
+    \item Po spuštění Python klienta ihned zažádá o seznam všech úloh, které následně zobrazí uživateli.\footnote{Tyto úlohy \emph{nebudou obsahovat} vygenerované hodnoty, pouze zástupné znaky ($\$n$).} To vše pomocí HTTP GET po\-ža\-davku.
+    \item Server jej příjme a na jeho popud zašle SQL query pro výběr \emph{všech} zá\-zna\-mů databázi. 
     \item Databáze zašle všechny své záznamy serveru.
     \item Server tuto odpověď zabalí do JSON objektu a zašle klientovi. 
     \item Uživateli se zobrazí všechny dostupné úlohy. Jednu z nich si vybere a zadá její kód.
@@ -142,6 +142,8 @@ Zdrojový kód je komentovaný, zde bude tedy pouze ve stručnosti popsána funk
 
 \section*{Závěr}
 \addcontentsline{toc}{section}{Závěr}
+Byl vyvinut stabilní systém pro generování a zasílání kryptografických úloh, který používá REST a JSON technologie. 
+
 Díky oddělení funkčních prvků systému bylo možné jednoduše rozdělit práci mezi členy týmu a zrychlit tak vývoj. Systém je nyní modulární a lehce roz\-šiřitelný. Využitím JSON objektů je také velice univerzální. 
 
 
