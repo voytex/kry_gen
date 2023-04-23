@@ -20,7 +20,7 @@
 
 \section*{Úvod}
 \addcontentsline{toc}{section}{Úvod}
-Předmětem této dokumentace je představit vizi projektu s názvem \uv{Generátor kryptografických úloh}. První část bude věnována teoretickému popisu systému jako celku. \dots
+Předmětem této dokumentace je představit vizi projektu s názvem \uv{Generátor kryptografických úloh}. První část bude věnována teoretickému popisu systému jako celku. V~druhé části bude názorně popsán průběh komunikace mezi serverem a klientem a ve třetí části bude ve stručnosti představeny zdrojové soubory. 
 
 \section{Architektura}
 Schéma systému lze vidět na obr.\,\ref{fig:sys}. Úlohy jsou uloženy v SQL databázi. K~této databázi má přístup pouze webový PHP~server. Ten slouží jako \uv{prostředník} mezi klientem a databází. Dále do úloh vkládá generované hodnoty (klíče apod.).
