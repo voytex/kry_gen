@@ -136,14 +136,30 @@ VUT v Brně
 
 % ------------------------------------------------------------------------
 
-\begin{frame}{Generátor hodnot}
-    
+\begin{frame}[fragile]{Generátor hodnot}
+    \begin{itemize}
+        \item součást back-end serveru, logika implementována v PHP
+        \item hodnoty jsou generovány náhodně, následně je kontrolvána jejich správnost
+        \item z hodnot je vypočítán výsledek~--~obojí následně předáno další vrstvě
+    \end{itemize}
+    \begin{lstlisting}[language=php, title=ukázka kódu]
+$random = rand(1,2); //slouzi k vyberu prvocislo / slozene cislo
+                     //podle vyberu se operand $prime nastavi na True/False
+if ($random == 1) {
+//prvocislo
+$X = rand(530, 10000);
+$C = gmp\_nextprime($X); //vysledek
+$prime= True;
+} else {
+//slozene cislo
+}
+    \end{lstlisting}
 \end{frame}
 
 \begin{frame}{Back-end server}
     \begin{itemize}
         \item vyvinut v PHP: \texttt{<url> = }\url{http://vut-fekt-mpckry-gr14.8u.cz/index.php}
-        \item 
+        \item implementuje REST
     \end{itemize}
     \begin{table}
         \centering
@@ -163,99 +179,32 @@ VUT v Brně
     
 \end{frame}
 
-% https://cs.overleaf.com/learn/latex/Lists
-\begin{frame}{Rešení}
-    \textbf{Unordered lists}
+\begin{frame}{Front-end klient}
     \begin{itemize}
-        \item Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-        \item Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante.
-        \item Aliquam erat volutpat.
-        \item Integer lacinia.
-        \item Cras pede libero, dapibus nec, pretium sit amet, tempor quis.
+        \item vyvinut jako skript v Pythonu
+        \item žádá back-end GET requestem, přijímá JSON objekty, které následně zobrazí
+        \linebreak
+        \item DEMO
     \end{itemize}
-    \bigskip % Vertical space
-
-    \textbf{Ordered lists}
-    \begin{enumerate}
-        \item \alert{Lorem ipsum dolor} sit amet, consectetuer adipiscing elit.
-        \item Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante.
-        \item Aliquam erat volutpat:
-        \begin{itemize}
-            \item Integer lacinia.
-            \item Cras pede libero, dapibus nec, pretium sit amet, tempor quis.
-        \end{itemize}
-    \end{enumerate}
+    
 \end{frame}
+
+% https://cs.overleaf.com/learn/latex/Lists
+
 % ----------------------------------------------------------------------
 
-\begin{frame}{Text}
-    \begin{columns}
-        % Left column and width
-        \column{0.45\textwidth}
-        \textit{Lorem ipsum} dolor sit amet, consectetuer adipiscing elit. Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante. Duis sapien nunc, commodo et, interdum suscipit, sollicitudin et, dolor.
-        \bigskip
-        
-        \texttt{Fusce tellus.} Praesent in mauris eu tortor porttitor accumsan. Nullam feugiat, turpis at pulvinar vulputate, erat libero tristique tellus, nec bibendum odio risus sit amet ante. Vestibulum fermentum tortor id mi.
-
-        % Right column and width
-        \column{0.45\textwidth}
-        \textbf{Lorem ipsum} dolor sit amet, consectetuer adipiscing elit. Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante. Duis sapien nunc, commodo et, interdum suscipit, sollicitudin et, dolor.
-        \bigskip
-        
-        Fusce tellus. Praesent in mauris eu tortor porttitor accumsan. Nullam feugiat, turpis at pulvinar vulputate, erat libero tristique tellus, nec bibendum odio risus sit amet ante. Vestibulum fermentum tortor id mi.
-    \end{columns}
-\end{frame}
 
 % ----------------------------------------------------------------------
 % https://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions
-\begin{frame}{?Diagram}
-    \begin{center}
-        \begin{figure}
-            \includegraphics[width=0.4\textwidth]{logo.png}
-            \caption{Your caption}
-        \end{figure}
-    \end{center}
-\end{frame}
+
 
 % ----------------------------------------------------------------------
 % https://en.wikibooks.org/wiki/LaTeX/Tables
-\begin{frame}{Tabulka}
-    \begin{center}
-        \begin{table}
-            \caption{Your caption}
-            \begin{tabular}{l | c | c | c | r}
-                \textbf{Function name} & \textbf{Duration} & \textbf{Complexity} & \textbf{Length} & \textbf{Score}\\
-                \hline \hline
-                Algo 1 & 0.0159 & 0.50 & 125 & 78 \\
-                Algo 2 & 0.0453 & 0.65 & 854 & 88 \\
-                Algo 3 & 0.8642 & 0.77 &  84 & 95 \\
-                Algo 4 & 0.0020 & 0.24 & 638 & 76 \\
-            \end{tabular}
-        \end{table}
-    \end{center}
-\end{frame}
+
 
 % ----------------------------------------------------------------------
 % https://en.wikibooks.org/wiki/LaTeX/Mathematics
-\begin{frame}{Rovnice}
-    Pythagorean theorem can be written in one short equation as: $a^2 + b^2 = c^2$ where $c$ is the longest side of the triangle, $a$ and $b$ are the other two sides.
 
-    \vfill % Rubber length which can stretch or shrink vertically
-
-    Other useful equations (thank you \textit{John Napier}):
-    \begin{equation}
-        \log_b (x\cdot y) = \log_b (x) + \log_b (y)
-    \end{equation}
-    \begin{equation}
-        \log_b \left( \frac{x}{y} \right) = \log_b (x) - \log_b (y)
-    \end{equation}
-    \begin{equation}
-        \log_b (x^p) = p\cdot \log_b (x)
-    \end{equation}
-    \begin{eqnarray}
-        \log_b(x) = y & \text{exactly if} & b^y = x\
-    \end{eqnarray}
-\end{frame}
 
 % ----------------------------------------------------------------------
 % https://cs.overleaf.com/learn/latex/Code_listing
