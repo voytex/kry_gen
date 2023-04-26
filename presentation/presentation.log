@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.5)  26 APR 2023 08:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.5)  26 APR 2023 08:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -949,28 +949,7 @@ Package pdftex.def Info: logo_fekt.png  used on input line 190.
 (pdftex.def)             Requested size: 95.01517pt x 23.47343pt.
  [7
 
-]
-\openout4 = `presentation.vrb'.
-
- (/Users/vojtechlukas/Documents/GitHub/kry_gen/presentation/presentation.vrb (/usr/local/texlive/2021/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2020/03/24 1.8d listings language file
-))
-File: logo_fekt.png Graphic file (type png)
-<use logo_fekt.png>
-Package pdftex.def Info: logo_fekt.png  used on input line 242.
-(pdftex.def)             Requested size: 95.01517pt x 23.47343pt.
-
-Overfull \vbox (12.87935pt too high) detected at line 242
- []
-
-[8
-
-]
-File: logo_fekt.png Graphic file (type png)
-<use logo_fekt.png>
-Package pdftex.def Info: logo_fekt.png  used on input line 250.
-(pdftex.def)             Requested size: 95.01517pt x 23.47343pt.
- [9
+] [8
 
 ]
 \tf@nav=\write6
@@ -990,18 +969,18 @@ Package rerunfilecheck Info: File `presentation.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 28552 strings out of 478994
- 533993 string characters out of 5858185
- 1236079 words of memory out of 5000000
- 45433 multiletter control sequences out of 15000+600000
- 412059 words of font info for 58 fonts, out of 8000000 for 9000
+ 28420 strings out of 478994
+ 532363 string characters out of 5858185
+ 1147713 words of memory out of 5000000
+ 45306 multiletter control sequences out of 15000+600000
+ 412365 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  131i,16n,132p,474b,3282s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfss0800.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sftt0800.pfb>
-Output written on /Users/vojtechlukas/Documents/GitHub/kry_gen/presentation/presentation.pdf (9 pages, 152825 bytes).
+{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfss0800.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sftt0800.pfb>
+Output written on /Users/vojtechlukas/Documents/GitHub/kry_gen/presentation/presentation.pdf (8 pages, 156421 bytes).
 PDF statistics:
- 128 PDF objects out of 1000 (max. 8388607)
- 95 compressed objects within 1 object stream
- 19 named destinations out of 1000 (max. 500000)
+ 125 PDF objects out of 1000 (max. 8388607)
+ 92 compressed objects within 1 object stream
+ 17 named destinations out of 1000 (max. 500000)
  53 words of extra memory for PDF output out of 10000 (max. 10000000)
 
