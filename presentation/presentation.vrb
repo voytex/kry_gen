@@ -1,18 +1,18 @@
 \frametitle{Generátor hodnot}
 \begin{itemize}
         \item součást back-end serveru, logika implementována v PHP
-        \item hodnoty jsou generovány náhodně, následně je kontrolvána jejich správnost
+        \item hodnoty jsou generovány náhodně, následně je kontrolována jejich správnost
         \item z hodnot je vypočítán výsledek~--~obojí následně předáno další vrstvě
     \end{itemize}
-    \begin{lstlisting}[language=php, title=ukázka kódu]
-$random = rand(1,2); //slouzi k vyberu prvocislo / slozene cislo
-                     //podle vyberu se operand $prime nastavi na True/False
-if ($random == 1) {
-//prvocislo
-$X = rand(530, 10000);
-$C = gmp\_nextprime($X); //vysledek
-$prime= True;
-} else {
-//slozene cislo
-}
-    \end{lstlisting}
+%     \begin{lstlisting}[language=php, title=ukázka kódu]
+% $random = rand(1,2); //slouzi k vyberu prvocislo / slozene cislo
+%                      //podle vyberu se operand $prime nastavi na True/False
+% if ($random == 1) {
+% //prvocislo
+% $X = rand(530, 10000);
+% $C = gmp\_nextprime($X); //vysledek
+% $prime= True;
+% } else {
+% //slozene cislo
+% }
+%     \end{lstlisting}
